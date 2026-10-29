@@ -704,5 +704,25 @@
   /* ---------------------------------------------------------------- footer year */
   $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
+  /* ---------------------------------------------------------------- footer clock */
+  // Harare time plus whether the panels are producing. Sunrise and sunset swing about
+  // half an hour either side of 06:05 / 18:10 over the year at 17.8°S.
+  const clocks = $$("[data-clock]");
+  if (clocks.length) {
+    const tick = () => {
+      const now = new Date();
+      const hm = now.toLocaleTimeString("en-GB", { timeZone: "Africa/Harare", hour: "2-digit", minute: "2-digit", hour12: false });
+      const [h, m] = hm.split(":").map(Number);
+      const doy = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 864e5);
+      const c = Math.cos(2 * Math.PI * (doy - 172) / 365);
+      const t = h + m / 60, day = t > 6.05 + .5 * c && t < 18.2 - .55 * c;
+      clocks.forEach((el) => {
+        el.classList.toggle("is-day", day);
+        el.lastElementChild.textContent = `Harare ${hm} · ${day ? "Panels producing" : "Running on battery"}`;
+      });
+    };
+    tick(); setInterval(tick, 30000);
+  }
+
   onScroll();
 })();

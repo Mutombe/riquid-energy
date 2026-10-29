@@ -970,3 +970,107 @@ html.lenis, html.lenis body { height: auto; }
   .zmap .pin.hq circle.core { r: 18px; }
   .zmap .dot { r: 5.5px; }
 }
+
+/* 14. Detail layer --------------------------------------------------------- */
+/* Patterns are drawn, not loaded. The PV cell (chamfered corners, two busbars) is the house texture:
+   cells on dark grounds, dots on light grounds, hatch on red tiles, rays where the sun sits. */
+:root {
+  --tile-cell: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%23000'%3E%3Cpath d='M5.5 1.5h15l4 4v15l-4 4h-15l-4-4v-15z'/%3E%3Cpath d='M10.5 1.5v23M15.5 1.5v23' stroke-opacity='.45' stroke-width='.7'/%3E%3C/g%3E%3C/svg%3E");
+  --tile-cell-faint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%23fff'%3E%3Cpath d='M5.5 1.5h15l4 4v15l-4 4h-15l-4-4v-15z' stroke-opacity='.07'/%3E%3Cpath d='M10.5 1.5v23M15.5 1.5v23' stroke-opacity='.035' stroke-width='.7'/%3E%3C/g%3E%3C/svg%3E");
+  --pat-dots: radial-gradient(circle at 1px 1px, #000 1px, transparent 1.3px);
+  --pat-hatch: repeating-linear-gradient(135deg, rgba(255, 255, 255, .1) 0 1px, transparent 1px 9px);
+  --fade-tr: radial-gradient(130% 130% at 100% 0%, #000 12%, transparent 62%);
+  --pat-ink: rgba(14, 15, 17, .11);
+  --pat-white: rgba(255, 255, 255, .085);
+}
+
+/* Shared corner patch: a pattern masked into the top-right corner, coloured by --pc. */
+.svc::after, .plan--dark::after, .calc__panel::after, .feat::after, .step::after, .value::after, .ccard::after, .mobile-menu::after {
+  content: ""; position: absolute; top: 0; right: 0; width: var(--pw, 62%); height: var(--ph, 60%); z-index: -1; pointer-events: none;
+  background-color: var(--pc, var(--pat-ink));
+  -webkit-mask: var(--pat, var(--tile-cell)) 100% 0 / var(--ps, 26px) var(--ps, 26px), var(--fade-tr); -webkit-mask-composite: source-in;
+  mask: var(--pat, var(--tile-cell)) 100% 0 / var(--ps, 26px) var(--ps, 26px), var(--fade-tr); mask-composite: intersect;
+  transition: background-color .6s var(--ease);
+}
+.svc:hover, .svc.is-inview { --pc: var(--pat-white); }
+.plan--dark, .calc__panel { --pc: var(--pat-white); }
+.feat, .step, .value, .ccard { --pat: var(--pat-dots); --ps: 12px; --pc: rgba(14, 15, 17, .2); --pw: 48%; --ph: 70%; position: relative; isolation: isolate; overflow: hidden; }
+.feat:hover, .feat.is-inview { --pc: rgba(229, 8, 15, .3); }
+.mobile-menu { isolation: isolate; }
+.mobile-menu::after {
+  top: auto; bottom: 0; width: 100%; height: 55%; --pc: var(--pat-white);
+  -webkit-mask: var(--tile-cell) 100% 100% / 26px 26px, radial-gradient(120% 100% at 100% 100%, #000 5%, transparent 65%); -webkit-mask-composite: source-in;
+  mask: var(--tile-cell) 100% 100% / 26px 26px, radial-gradient(120% 100% at 100% 100%, #000 5%, transparent 65%); mask-composite: intersect;
+}
+
+/* Same-tone cards on a same-tone ground lose their edges: lift them to white. */
+.section--bone :is(.svc, .step, .feat, .value) { background: #fff; }
+
+/* Service card serial: 01 / 06 */
+.svc .num::after { content: " / 06"; color: var(--muted-2); transition: color .6s; }
+.svc:hover .num::after, .svc.is-inview .num::after { color: rgba(255, 255, 255, .35); }
+
+/* Red stat tile: fine hatch, faded from the corner */
+.num-card--solid { position: relative; overflow: hidden; isolation: isolate; }
+.num-card--solid::after { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--pat-hatch); -webkit-mask: var(--fade-tr); mask: var(--fade-tr); pointer-events: none; }
+
+/* Chart cards read like a datasheet: registration marks in each corner */
+.chart-card::after {
+  content: ""; position: absolute; inset: 12px; pointer-events: none; --m: var(--line-2);
+  background:
+    linear-gradient(var(--m), var(--m)) 0 0 / 9px 1px, linear-gradient(var(--m), var(--m)) 0 0 / 1px 9px,
+    linear-gradient(var(--m), var(--m)) 100% 0 / 9px 1px, linear-gradient(var(--m), var(--m)) 100% 0 / 1px 9px,
+    linear-gradient(var(--m), var(--m)) 0 100% / 9px 1px, linear-gradient(var(--m), var(--m)) 0 100% / 1px 9px,
+    linear-gradient(var(--m), var(--m)) 100% 100% / 9px 1px, linear-gradient(var(--m), var(--m)) 100% 100% / 1px 9px;
+  background-repeat: no-repeat;
+}
+
+/* Calculator: the battery sits behind frosted result tiles instead of over them */
+.calc__panel .obj { right: -34px; bottom: -58px; width: 190px; z-index: 0; }
+.calc__result { position: relative; z-index: 1; }
+.calc__result div { background: rgba(255, 255, 255, .05); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+.calc__result b { font-variant-numeric: tabular-nums; }
+
+/* Footer: PV cells fading in from the bloom corner, and faint rays where the sun sits */
+.footer::before, .footer::after { content: ""; position: absolute; top: 0; right: 0; pointer-events: none; z-index: -1; }
+.footer::before { width: 60%; height: 85%; background: var(--tile-cell-faint) 100% 0 / 26px 26px; -webkit-mask: var(--fade-tr); mask: var(--fade-tr); }
+.footer::after { width: 70%; height: 100%; background: repeating-conic-gradient(from 180deg at 100% 0%, rgba(255, 255, 255, .04) 0deg .35deg, transparent .35deg 4.5deg); -webkit-mask: radial-gradient(90% 90% at 100% 0%, #000, transparent 75%); mask: radial-gradient(90% 90% at 100% 0%, #000, transparent 75%); }
+.footer__word { background: var(--tile-cell-faint) 50% 0 / 22px 22px, linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, 0) 85%); -webkit-background-clip: text; background-clip: text; }
+.footer__cols { counter-reset: fc; }
+.footer__cols h4::before { counter-increment: fc; content: "0" counter(fc); font-family: var(--font-mono); color: var(--red-2); margin-right: 10px; font-size: .7rem; }
+.socials a { gap: 6px; border: 1px solid rgba(255, 255, 255, .06); }
+.socials a svg { width: 13px; height: 13px; opacity: .5; transition: transform .4s var(--ease), opacity .3s; }
+.socials a:hover svg { opacity: 1; transform: translate(2px, -2px); }
+.footer__bar { align-items: center; }
+.fclock { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.fclock i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, .35); }
+.fclock.is-day i { background: var(--amber); animation: sunpulse 2.4s ease-out infinite; }
+@keyframes sunpulse { 0% { box-shadow: 0 0 0 0 rgba(242, 169, 59, .55); } 100% { box-shadow: 0 0 0 7px rgba(242, 169, 59, 0); } }
+.totop { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, .6); transition: color .3s; }
+.totop svg { width: 13px; height: 13px; transform: rotate(-90deg); transition: transform .4s var(--ease); }
+.totop:hover { color: #fff; }
+.totop:hover svg { transform: rotate(-90deg) translateX(3px); }
+
+/* Mobile nav: a bare three-line toggle with a Projects shortcut beside it */
+.nav__m { display: none; height: 38px; padding: 0 15px; border-radius: 99px; align-items: center; font-size: .84rem; font-weight: 500; color: #fff; background: var(--ink); transition: background .3s, opacity .4s, transform .4s var(--ease); }
+.nav__m[aria-current="page"] { background: var(--red); }
+.nav__m:active { transform: scale(.96); }
+.burger { width: 44px; height: 44px; border-radius: 0; background: none; margin-right: -4px; }
+.burger span { left: auto; right: 10px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform .5s var(--ease), top .5s var(--ease), width .5s var(--ease), opacity .3s, background .4s; }
+.burger span:nth-child(1) { top: 14px; width: 24px; }
+.burger span:nth-child(2) { top: 21px; width: 15px; }
+.burger span:nth-child(3) { top: 28px; width: 24px; }
+.burger:hover span:nth-child(2) { width: 24px; }
+.menu-open .burger span { background: #fff; }
+.menu-open .burger span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.menu-open .burger span:nth-child(2) { opacity: 0; width: 0; }
+.menu-open .burger span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+.menu-open .nav__m { opacity: 0; pointer-events: none; transform: translateX(8px); }
+@media (max-width: 980px) {
+  .nav__m { display: inline-flex; }
+  .nav__right { gap: 6px; }
+}
+@media (max-width: 600px) {
+  .footer__bar { justify-content: center; text-align: center; }
+  .footer__bar > span:first-child { order: 3; width: 100%; }
+}

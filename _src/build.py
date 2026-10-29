@@ -83,7 +83,8 @@ def nav(current):
   <div class="nav__right">
     <a class="nav__phone" href="tel:{PHONE_LINK}">{icon("phone")}{PHONE}</a>
     <a class="btn btn--sm" href="contact.html#quote">Get a quote <span class="btn__ic">{icon("arrow-ur")}</span></a>
-    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    <a class="nav__m" href="projects.html"{' aria-current="page"' if current == "projects" else ""}>Projects</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="mobile-menu" id="mobile-menu">
@@ -133,10 +134,10 @@ def footer():
       <a class="btn btn--light btn--sm" href="contact.html#quote">Get a quote <span class="btn__ic">{icon("arrow-ur")}</span></a>
     </div>
     <div class="socials">
-      <a href="https://www.facebook.com/riquides" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://twitter.com/RiquidEnergySol" target="_blank" rel="noopener">X / Twitter</a>
-      <a href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.linkedin.com/search/results/all/?keywords=Riquid%20Energy" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.facebook.com/riquides" target="_blank" rel="noopener">Facebook{icon("arrow-ur")}</a>
+      <a href="https://twitter.com/RiquidEnergySol" target="_blank" rel="noopener">X / Twitter{icon("arrow-ur")}</a>
+      <a href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp{icon("arrow-ur")}</a>
+      <a href="https://www.linkedin.com/search/results/all/?keywords=Riquid%20Energy" target="_blank" rel="noopener">LinkedIn{icon("arrow-ur")}</a>
     </div>
   </div>
   <div class="footer__cols">
@@ -147,7 +148,7 @@ def footer():
       <form class="news"><label class="sr-only" for="nl-{{{{page}}}}">Email address</label><input id="nl-{{{{page}}}}" type="email" placeholder="Your email" required><button type="submit">Subscribe</button></form></div>
   </div>
   <div class="footer__word" aria-hidden="true">Riquid</div>
-  <div class="footer__bar"><span>© <span data-year>2026</span> Riquid Energy Solutions. All rights reserved.</span><span>Harare, Zimbabwe · Solar · Storage · Water</span></div>
+  <div class="footer__bar"><span>© <span data-year>2026</span> Riquid Energy Solutions. All rights reserved.</span><span class="fclock" data-clock><i></i><span>Harare, Zimbabwe</span></span><a class="totop" href="#main">Back to top {icon("arrow-r")}</a></div>
 </footer>'''
 
 HEAD = '''<!doctype html>
