@@ -1,0 +1,222 @@
+---
+title: Services · Solar panels, inverters, batteries and borehole pumps | Riquid Energy
+description: Solar panels, smart hybrid inverters, lithium-ion batteries, DC and AC solar borehole pumps, and maintenance and reconfiguration, supplied and installed by Riquid Energy in Zimbabwe.
+nav: services
+og: panels-inverters-field
+---
+{{loader}}
+{{nav}}
+<main id="main">
+
+<section class="page-hero">
+  <div class="page-hero__frame">
+    {{img:panels-inverters-field|Ground-mounted solar array with string inverters on posts|||eager}}
+    <div class="page-hero__word" aria-hidden="true">Services</div>
+    <div class="page-hero__content">
+      <div>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></nav>
+        <span class="eyebrow" style="color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)">Some of our efficient solutions</span>
+        <h1 class="h1" style="max-width:15ch" data-split>One team for the whole system</h1>
+      </div>
+      <div style="display:grid;gap:16px;justify-items:start;max-width:320px" data-reveal>
+        <p class="lede">Panels, inverters, storage, pumps and service.</p>
+        <a class="btn btn--light" href="contact.html#quote">Get a quote <span class="btn__ic">{{i:arrow-ur}}</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="container">
+    <nav class="svc-index" aria-label="Services">
+      <a href="#panels"><img src="assets/img/obj/obj-panel.webp" alt="">Solar panels</a>
+      <a href="#inverters"><img src="assets/img/obj/obj-ribbon.webp" alt="">Hybrid inverters</a>
+      <a href="#batteries"><img src="assets/img/obj/obj-battery.webp" alt="">Lithium batteries</a>
+      <a href="#dc-pumps"><img src="assets/img/obj/obj-drop.webp" alt="">DC pumps</a>
+      <a href="#ac-pumps"><img src="assets/img/obj/obj-impeller.webp" alt="">AC pumps</a>
+      <a href="#maintenance"><img src="assets/img/obj/obj-gear.webp" alt="">Maintenance</a>
+    </nav>
+
+    <article class="svc-block" id="panels">
+      <div class="split">
+        <figure data-reveal="clip">
+          {{img:panels-clouds|Rows of blue solar panels under a cloud-filled sky|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>21%+</b>module efficiency class</div>
+          <img class="figure-obj" src="assets/img/obj/obj-panel.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>01 · Solar panels</span>
+          <h2 class="h2" data-split>High-efficiency panels</h2>
+          <p class="lede" data-reveal>Tier-one mono modules that make the most of every roof.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Roof, ground and carport mounting</li><li>{{i:check}}Tilt and orientation optimised for your site</li><li>{{i:check}}25-year manufacturer performance warranty</li></ul>
+          <div class="spec-row" data-reveal><div class="spec"><b>450 to 600 W</b><span>per module</span></div><div class="spec"><b>25 yr</b><span>performance warranty</span></div><div class="spec"><b>1 to 2 days</b><span>typical home install</span></div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-block" id="inverters">
+      <div class="split split--rev">
+        <figure data-reveal="clip">
+          {{img:inverter-house-wall|Hybrid inverter and switchgear mounted on a house wall|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>&lt; 10 ms</b>switch-over on outage</div>
+          <img class="figure-obj" src="assets/img/obj/obj-ribbon.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>02 · Smart hybrid inverters</span>
+          <h2 class="h2" data-split>The brain of the system</h2>
+          <p class="lede" data-reveal>One smart unit for sun, battery and grid. It switches before the lights flicker.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Instant load-shedding backup</li><li>{{i:check}}Live app monitoring</li><li>{{i:check}}Single- and three-phase, 3 kVA to 50 kW+</li></ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- HOW IT WORKS: interactive energy flow -->
+<section class="section--tight" style="padding-top:0">
+  <div class="container">
+    <div class="flow on-dark" data-flow data-reveal>
+      <div class="bloom bloom--red" style="width:420px;height:420px;right:-120px;top:-140px" aria-hidden="true"></div>
+      <div class="section-head" style="margin-bottom:28px">
+        <div><span class="eyebrow">How a hybrid system works</span><h2 class="h2" style="margin-top:20px">Watch the power move</h2></div>
+        <p class="lede">Pick a moment of the day.</p>
+      </div>
+      <div class="flow-modes" role="group" aria-label="Choose a scenario">
+        <button type="button" data-mode="day" aria-pressed="true">☀ Midday</button>
+        <button type="button" data-mode="night" aria-pressed="false">☾ Evening</button>
+        <button type="button" data-mode="outage" aria-pressed="false">⚡ Outage</button>
+        <button type="button" data-mode="grid" aria-pressed="false">☁ Cloudy</button>
+      </div>
+      <svg class="flow-d" viewBox="0 0 880 400" role="img" aria-label="Diagram: sun to panels to hybrid inverter, which feeds the home and battery and can draw from the grid">
+        <g class="wires">
+          <path class="wire" d="M130 100V170"/><path class="current current--sun" data-wire="sun" d="M130 100V170"/>
+          <path class="wire" d="M220 210H360"/><path class="current current--dc" data-wire="pv-inv" d="M220 210H360"/>
+          <path class="wire" d="M540 210H680"/><path class="current current--ac" data-wire="inv-home" d="M540 210H680"/>
+          <path class="wire" d="M435 250V320"/><path class="current current--dc" data-wire="inv-batt" d="M435 250V320"/>
+          <path class="wire" d="M465 320V250"/><path class="current current--dc" data-wire="batt-inv" d="M465 320V250"/>
+          <path class="wire" d="M770 100V135H500V170"/><path class="current current--grid" data-wire="grid-inv" d="M770 100V135H500V170"/>
+        </g>
+        <g class="node"><rect x="40" y="20" width="180" height="80" rx="18"/><image href="assets/img/obj/obj-sun.webp" x="48" y="28" width="64" height="64"/><text x="120" y="56">Sun</text><text class="sub" x="120" y="76">~6 h/day</text></g>
+        <g class="node"><rect x="40" y="170" width="180" height="80" rx="18"/><image href="assets/img/obj/obj-panel.webp" x="48" y="178" width="64" height="64"/><text x="120" y="206">Panels</text><text class="sub" x="120" y="226">DC power</text></g>
+        <g class="node"><rect x="360" y="170" width="180" height="80" rx="18" style="stroke:#e5080f"/><image href="assets/img/obj/obj-ribbon.webp" x="368" y="178" width="64" height="64"/><text x="440" y="206">Inverter</text><text class="sub" x="440" y="226">DC → AC</text></g>
+        <g class="node"><rect x="680" y="170" width="180" height="80" rx="18"/><image href="assets/img/obj/obj-ring.webp" x="688" y="178" width="64" height="64"/><text x="760" y="206">Your home</text><text class="sub" x="760" y="226">230 V AC</text></g>
+        <g class="node"><rect x="680" y="20" width="180" height="80" rx="18"/><image href="assets/img/obj/obj-gear.webp" x="688" y="28" width="64" height="64"/><text x="760" y="56">ZESA grid</text><text class="sub" x="760" y="76">top-up only</text></g>
+        <g class="node"><rect x="360" y="320" width="180" height="70" rx="18"/><image href="assets/img/obj/obj-battery.webp" x="372" y="326" width="58" height="58"/><text x="440" y="352">Battery</text><text class="sub" x="440" y="372">LiFePO₄</text></g>
+      </svg>
+      <svg class="flow-m" viewBox="0 0 360 460" role="img" aria-label="Diagram: sun to panels to inverter, which feeds the home and battery and can draw from the grid">
+        <g class="wires">
+          <path class="wire" d="M95 74V130"/><path class="current current--sun" data-wire="sun" d="M95 74V130"/>
+          <path class="wire" d="M95 194V222H150V250"/><path class="current current--dc" data-wire="pv-inv" d="M95 194V222H150V250"/>
+          <path class="wire" d="M265 74V222H210V250"/><path class="current current--grid" data-wire="grid-inv" d="M265 74V222H210V250"/>
+          <path class="wire" d="M150 314V346H80V380"/><path class="current current--dc" data-wire="inv-batt" d="M150 314V346H80V380"/>
+          <path class="wire" d="M110 380V358H170V314"/><path class="current current--dc" data-wire="batt-inv" d="M110 380V358H170V314"/>
+          <path class="wire" d="M210 314V346H265V380"/><path class="current current--ac" data-wire="inv-home" d="M210 314V346H265V380"/>
+        </g>
+        <g class="node"><rect x="20" y="10" width="150" height="64" rx="14"/><image href="assets/img/obj/obj-sun.webp" x="26" y="16" width="52" height="52"/><text x="84" y="38">Sun</text><text class="sub" x="84" y="56">~6 h/day</text></g>
+        <g class="node"><rect x="190" y="10" width="150" height="64" rx="14"/><image href="assets/img/obj/obj-gear.webp" x="196" y="16" width="52" height="52"/><text x="254" y="38">Grid</text><text class="sub" x="254" y="56">top-up</text></g>
+        <g class="node"><rect x="20" y="130" width="150" height="64" rx="14"/><image href="assets/img/obj/obj-panel.webp" x="26" y="136" width="52" height="52"/><text x="84" y="158">Panels</text><text class="sub" x="84" y="176">DC</text></g>
+        <g class="node"><rect x="105" y="250" width="150" height="64" rx="14" style="stroke:#e5080f"/><image href="assets/img/obj/obj-ribbon.webp" x="111" y="256" width="52" height="52"/><text x="169" y="278">Inverter</text><text class="sub" x="169" y="296">DC → AC</text></g>
+        <g class="node"><rect x="20" y="380" width="150" height="64" rx="14"/><image href="assets/img/obj/obj-battery.webp" x="26" y="386" width="52" height="52"/><text x="84" y="408">Battery</text><text class="sub" x="84" y="426">LiFePO₄</text></g>
+        <g class="node"><rect x="190" y="380" width="150" height="64" rx="14"/><image href="assets/img/obj/obj-ring.webp" x="196" y="386" width="52" height="52"/><text x="254" y="408">Home</text><text class="sub" x="254" y="426">230 V</text></g>
+      </svg>
+      <p class="flow-caption" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="svc-block" id="batteries" style="border-top:0;padding-top:0">
+      <div class="split">
+        <figure data-reveal="clip">
+          {{img:batteries-glow|Wall-mounted lithium battery packs with glowing charge indicators|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>6,000+</b>cycles, LiFePO₄ class</div>
+          <img class="figure-obj" src="assets/img/obj/obj-battery.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>03 · Lithium-ion batteries</span>
+          <h2 class="h2" data-split>Daytime sun, used after dark</h2>
+          <p class="lede" data-reveal>LiFePO₄: safer, lighter and longer-lived than lead-acid.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Stackable: start small, add capacity later</li><li>{{i:check}}Deep discharge without damage</li><li>{{i:check}}Built-in battery management and monitoring</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="chart-card" style="margin:clamp(24px,4vw,48px) 0" data-reveal>
+      <div class="chart-head">
+        <div><h3 class="h4">A typical day, 5 kWp</h3><p class="small">Harare · illustrative</p></div>
+        <div class="legend"><span style="--c:var(--red)"><i></i>Solar production</span><span style="--c:var(--sky)"><i></i>Home demand</span></div>
+      </div>
+      <div class="chart" data-chart="day" data-draw></div>
+      <p class="small" style="margin-top:10px">Surplus solar charges the battery for the evening peak.</p>
+    </div>
+
+    <article class="svc-block" id="dc-pumps">
+      <div class="split split--rev">
+        <figure data-reveal="clip">
+          {{img:irrigation-garden|Women watering rows of vegetables in a community garden|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>$0</b>fuel cost to pump</div>
+          <img class="figure-obj" src="assets/img/obj/obj-drop.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>04 · DC solar pumps</span>
+          <h2 class="h2" data-split>Water straight from the sun</h2>
+          <p class="lede" data-reveal>DC pumps run directly off the panels, with no fuel.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Borehole siting, drilling and pump sizing</li><li>{{i:check}}Tank, float switch and plumbing</li><li>{{i:check}}Runs from sunrise to sunset, no diesel</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-block" id="ac-pumps">
+      <div class="split">
+        <figure data-reveal="clip">
+          {{img:agrivoltaic-rows|Solar canopy over rows of irrigated crops|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>Higher flow</b>for deep boreholes</div>
+          <img class="figure-obj" src="assets/img/obj/obj-impeller.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>05 · AC pumps</span>
+          <h2 class="h2" data-split>Deeper wells, bigger fields</h2>
+          <p class="lede" data-reveal>High-flow AC pumps on a solar pump inverter.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Submersible and surface pumps</li><li>{{i:check}}Drip, sprinkler and centre-pivot ready</li><li>{{i:check}}Soft-start drives that protect your pump</li></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-block" id="maintenance">
+      <div class="split split--rev">
+        <figure data-reveal="clip">
+          {{img:engineer-vineyard|Technician in a hard hat servicing a row of solar panels|(max-width:980px) 100vw, 50vw}}
+          <div class="figure-glass glass"><b>Any brand</b>we service it</div>
+          <img class="figure-obj" src="assets/img/obj/obj-gear.webp" alt="" aria-hidden="true" data-parallax=".08">
+        </figure>
+        <div class="copy">
+          <span class="eyebrow" data-reveal>06 · Maintenance &amp; reconfiguration</span>
+          <h2 class="h2" data-split>Keep it simple, keep it efficient</h2>
+          <p class="lede" data-reveal>We test, clean, re-wire and upgrade any system.</p>
+          <ul class="ticks" data-reveal><li>{{i:check}}Health checks and thermal inspection</li><li>{{i:check}}Adding panels or batteries to existing systems</li><li>{{i:check}}Inverter firmware and settings optimisation</li></ul>
+          <div data-reveal><a class="btn" href="contact.html#quote">Book a service visit <span class="btn__ic">{{i:arrow-ur}}</span></a></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section section--bone">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow" data-reveal>Our process</span><h2 class="h2" style="margin-top:20px" data-split>Call to sunrise, in four steps</h2></div>
+      <p class="lede" data-reveal>Our own crew at every step.</p>
+    </div>
+    <div class="steps" data-draw>
+      <article class="step" style="--i:0" data-reveal><span class="bar"></span><h3 class="h3">Free site survey</h3><p class="small">Roof, board and bills checked.</p></article>
+      <article class="step" style="--i:1" data-reveal><span class="bar"></span><h3 class="h3">Custom design</h3><p class="small">Sized to your loads, fixed quote.</p></article>
+      <article class="step" style="--i:2" data-reveal><span class="bar"></span><h3 class="h3">Installation</h3><p class="small">Certified, tidy, walked through.</p></article>
+      <article class="step" style="--i:3" data-reveal><span class="bar"></span><h3 class="h3">Ongoing support</h3><p class="small">Monitoring and call-outs.</p></article>
+    </div>
+  </div>
+</section>
+
+{{cta}}
+</main>
+{{footer}}
